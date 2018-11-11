@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>题目</title>
+<!---css--->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!---css--->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!---js--->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!---js--->
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!--web-fonts-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700italic,700,600italic,600,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+<!--//web-fonts-->
+<!--JS for animate-->
+	<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+	<script src="js/wow.min.js"></script>
+		<script>
+			new WOW().init();
+		</script>
+	<!--//end-animate-->
+
+</head>
+<body>
+	<div class="header head">
+		<div class="container">
+			<div class="heder-top">
+				<div class="logo">
+					<h1><a href="index.html">Online Judge</a></h1>
+				</div>
+				<div class="nav-icon">		
+					<a href="#" class="navicon"></a>
+						<div class="toggle">
+							<ul class="toggle-menu">
+								<li><a href="index.html">主页</a></li>
+								<li><a class="active"  href="practice.html">编程练习</a></li>
+								<li><a  href="cont.html">代码测试</a></li>
+								<li><a  href="record.html">练习记录</a></li>
+							</ul>
+						</div>
+					<script>
+					$('.navicon').on('click', function (e) {
+					  e.preventDefault();
+					  $(this).toggleClass('navicon--active');
+					  $('.toggle').toggleClass('toggle--active');
+					});
+					</script>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--header--->
+		<div class="content">
+			<div class="contact">
+				<div class="container">
+					<div class="contact-grids">
+						<div class="col-md-6 contact-grid wow fadeInLeft animated animated" data-wow-delay="0.4s">
+							<h4>题目：</h4>
+							<span>请用代码实现十进制数向二进制数的转换</span>
+								<div class="row1">
+								<label>代码：</label>
+								<textarea placeholder="请输入你的代码" id="text1"></textarea>
+								</div>
+								<button id="inp1" class="btn btn-success">确定</button>
+						</div>
+						<div class="col-md-6 contact-grid wow fadeInRight animated animated" data-wow-delay="0.4s">
+							<div class="col-md-6 contact-left" id="false" style="display: none">
+								<div class="alert alert-danger">
+									<em>Error!</em><i>您的代码运行错误，仔细检查一下吧。</i>
+								</div>
+							</div>
+							<div class="col-md-6 contact-right" id="true" style="display: none">
+								<div class="alert alert-success">
+									<em>Congratulations！</em><i>答案正确</i>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-section wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+			<div class="container">
+				<div class="copy">
+					<p>感谢使用</p>
+				</div>
+			</div>
+		</div>
+
+</body>
+<script type="text/javascript">
+	document.getElementById("inp1").onclick=function () {
+	    var otrue=document.getElementById('true');
+        var ofalse=document.getElementById("false");
+        ofalse.style.display='none';
+        otrue.style.display='none';
+	    var oTex=document.getElementById('text1').value;
+        var xhr=new XMLHttpRequest();
+	    xhr.open('get','001.php?code='+oTex);
+	    xhr.onload=function () {
+			if (xhr.responseText==1)
+                otrue.style.display='block';
+			else
+                ofalse.style.display='block';
+        }
+        xhr.send(null);
+	}
+</script>
+</html>

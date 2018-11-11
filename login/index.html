@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="css/body.css"/> 
+</head>
+<body>
+<div class="container">
+	<section id="content">
+		<form action="../index.html"  method="post">
+			<h1>登录</h1>
+			<div>
+				<input type="text" placeholder="用户名" required="" id="username" name="name"/>
+			</div>
+			<div>
+				<input type="password" placeholder="密码" required="" id="password" name="password"/>
+			</div>
+			<div>
+				<input type="text" placeholder="验证码" required="" id="code_input"  />
+				<div id="v_container" style="width: 40%;height: 47px;"></div>
+
+			</div>
+			 <div class="">
+				<span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>			</div> 
+			<div>
+				<input type="submit" value="登录" class="btn btn-primary" id="js-btn-login"/>
+				 <a href="../register/index.html">注册</a>
+			</div>
+		</form><!-- form -->
+	</section><!-- content -->
+</div>
+</body>
+<script src="js/gVerify.js"></script>
+<script>
+    var verifyCode = new GVerify("v_container");
+
+    document.getElementById("js-btn-login").onclick = function(){
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        if(res==false){
+            alert("验证码输入错误");
+            return false;
+        }
+    }
+</script>
+</html>
